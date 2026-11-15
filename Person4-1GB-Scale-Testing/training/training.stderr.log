@@ -1,0 +1,40 @@
+2026/11/14 13:25:55 INFO mlflow.tracking.fluent: Experiment with name 'network-known-unknown' does not exist. Creating a new experiment.
+[31m2026/11/14 15:05:15 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.[0m
+/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/.venv312/lib/python3.12/site-packages/xgboost/core.py:158: UserWarning: [15:05:36] WARNING: /Users/runner/work/xgboost/xgboost/src/c_api/c_api.cc:1374: Saving model in the UBJSON format as default.  You can use file extension: `json`, `ubj` or `deprecated` to choose between formats.
+  warnings.warn(smsg, UserWarning)
+[31m2026/11/14 15:05:38 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.[0m
+Traceback (most recent call last):
+  File "/Users/ullasgowdam/Network-ML-scale-benchmarks/training-1gb/isolated_training_driver.py", line 72, in <module>
+    train_compare.main()
+  File "/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/train_compare.py", line 361, in main
+    joblib.dump(models["Random Forest"], "rf.joblib")
+  File "/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/.venv312/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 600, in dump
+    NumpyPickler(f, protocol=protocol).dump(value)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 484, in dump
+    self.save(obj)
+  File "/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/.venv312/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 601, in save
+    self.save_reduce(obj=obj, *rv)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 715, in save_reduce
+    save(state)
+  File "/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/.venv312/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 558, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 990, in save_dict
+    self._batch_setitems(obj.items())
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 1014, in _batch_setitems
+    save(v)
+  File "/Users/ullasgowdam/Network-ML-extractor-rules-models-classifier/.venv312/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 395, in save
+    return Pickler.save(self, obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 558, in save
+    f(self, obj)  # Call unbound method with explicit self
+    ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pickle.py", line 1087, in save_global
+    raise PicklingError(
+_pickle.PicklingError: Can't pickle <function timed_make_models.<locals>.timed_prediction at 0x1014bc7c0>: it's not found as __main__.timed_make_models.<locals>.timed_prediction

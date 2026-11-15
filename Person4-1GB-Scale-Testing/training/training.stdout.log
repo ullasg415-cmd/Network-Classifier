@@ -1,0 +1,67 @@
+Model features used: protocol, packet_count, total_bytes, avg_packet_size, duration, packet_rate, byte_rate, syn, fin, rst, psh, ack
+Random Forest leave-one-capture-out flows2.csv F1: 0.8991
+Random Forest leave-one-capture-out flows3.csv F1: 0.8994
+Random Forest leave-one-capture-out flows4.csv F1: 0.8991
+Random Forest leave-one-capture-out macro F1 (3 folds): mean=0.8992, std=0.0002
+XGBoost leave-one-capture-out flows2.csv F1: 0.9064
+XGBoost leave-one-capture-out flows3.csv F1: 0.9068
+XGBoost leave-one-capture-out flows4.csv F1: 0.9065
+XGBoost leave-one-capture-out macro F1 (3 folds): mean=0.9066, std=0.0002
+
+Random Forest full test set metrics:
+Per-class metrics:
+  Known: precision=0.8795, recall=0.9255, F1=0.9019
+  Unknown: precision=0.9214, recall=0.8732, F1=0.8967
+Confusion matrix (labels=['Known', 'Unknown']):
+[[2317548  186424]
+ [ 317568 2186404]]
+ROC-AUC: 0.9623
+Top 10 feature importances:
+  packet_rate: 0.229727
+  rst: 0.196118
+  byte_rate: 0.136390
+  syn: 0.123765
+  duration: 0.121606
+  total_bytes: 0.057030
+  avg_packet_size: 0.046009
+  packet_count: 0.041114
+  ack: 0.021359
+  protocol: 0.010646
+
+Random Forest rule-unclassified test set (3445267 rows) metrics:
+Per-class metrics:
+  Known: precision=0.7329, recall=0.9257, F1=0.8181
+  Unknown: precision=0.9690, recall=0.8732, F1=0.9186
+Confusion matrix (labels=['Known', 'Unknown']):
+[[ 871387   69908]
+ [ 317568 2186404]]
+ROC-AUC: 0.9623
+
+XGBoost full test set metrics:
+Per-class metrics:
+  Known: precision=0.8837, recall=0.9372, F1=0.9096
+  Unknown: precision=0.9332, recall=0.8766, F1=0.9040
+Confusion matrix (labels=['Known', 'Unknown']):
+[[2346758  157214]
+ [ 308970 2195002]]
+ROC-AUC: 0.9682
+Top 10 feature importances:
+  rst: 0.692784
+  packet_rate: 0.153737
+  syn: 0.081776
+  ack: 0.022951
+  duration: 0.021613
+  protocol: 0.017612
+  psh: 0.005365
+  packet_count: 0.002756
+  fin: 0.001079
+  total_bytes: 0.000118
+
+XGBoost rule-unclassified test set (3445267 rows) metrics:
+Per-class metrics:
+  Known: precision=0.7406, recall=0.9373, F1=0.8274
+  Unknown: precision=0.9738, recall=0.8766, F1=0.9227
+Confusion matrix (labels=['Known', 'Unknown']):
+[[ 882290   59005]
+ [ 308970 2195002]]
+ROC-AUC: 0.9683
