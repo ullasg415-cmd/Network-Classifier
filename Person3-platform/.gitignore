@@ -7,3 +7,12 @@ backend/app_data/
 backend/data/
 mlflow/data/
 mlruns/
+
+# Local Python environments
+.venv/
+
+# Local Video integration backups
+*.video-backup
+
+# Downloaded Video model cache
+backend/video/model_cache/

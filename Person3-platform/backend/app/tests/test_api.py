@@ -162,7 +162,7 @@ class RegistryEndpoints(ApiTestCase):
     def test_list(self):
         body = self.client.get("/registry/models").json()
         self.assertTrue(body["available"])
-        self.assertEqual({m["name"] for m in body["models"]}, {"text-classifier", "network-classifier"})
+        self.assertEqual({m["name"] for m in body["models"]}, {"text-classifier", "network-classifier", "video-classifier"})
 
     def test_list_without_mlflow_is_200_with_banner(self):
         from app.routers import registry

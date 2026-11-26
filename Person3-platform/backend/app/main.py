@@ -15,6 +15,7 @@ from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from text.api import router as text_router      # Person 2's router, mounted unchanged
+from video.api import router as video_router
 
 from . import config
 from .core.errors import AppError, code_for_status, error_body
@@ -77,6 +78,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router)
     app.include_router(network.router)
     app.include_router(text_router)
+    app.include_router(video_router)
     app.include_router(registry.router)
     return app
 

@@ -56,6 +56,10 @@ def text_model_name() -> str:
     return os.getenv("TEXT_MODEL_NAME", "text-classifier")
 
 
+def video_model_name() -> str:
+    return os.getenv("VIDEO_MODEL_NAME", "video-classifier")
+
+
 def model_alias() -> str:
     return os.getenv("MODEL_ALIAS", "champion")
 

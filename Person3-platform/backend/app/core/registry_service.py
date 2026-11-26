@@ -53,6 +53,17 @@ def _text_serving() -> Dict[str, Any]:
     return text.model_info()
 
 
+def _video_reload() -> Dict[str, Any]:
+    import video
+    video.reload_model()
+    return video.model_info()
+
+
+def _video_serving() -> Dict[str, Any]:
+    import video
+    return video.model_info()
+
+
 def _iso(ms: Optional[int]) -> Optional[str]:
     if not ms:
         return None
@@ -70,8 +81,8 @@ class RegistryService:
                  reloaders: Optional[Dict[str, Callable[[], Dict[str, Any]]]] = None,
                  serving: Optional[Dict[str, Callable[[], Dict[str, Any]]]] = None):
         self._client_factory = client_factory or _default_client
-        self._reloaders = reloaders if reloaders is not None else {"text": _text_reload}
-        self._serving = serving if serving is not None else {"text": _text_serving}
+        self._reloaders = reloaders if reloaders is not None else {"text": _text_reload, "video": _video_reload}
+        self._serving = serving if serving is not None else {"text": _text_serving, "video": _video_serving}
 
     # ---- basics ------------------------------------------------------------------
     def _client(self):
@@ -83,6 +94,7 @@ class RegistryService:
         return [
             {"name": config.network_model_name(), "branch": "network"},
             {"name": config.text_model_name(), "branch": "text"},
+            {"name": config.video_model_name(), "branch": "video"},
         ]
 
     def branch_of(self, name: str) -> str:
