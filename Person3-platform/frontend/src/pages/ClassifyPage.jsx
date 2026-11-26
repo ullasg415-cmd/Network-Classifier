@@ -5,6 +5,7 @@ import UploadBox from "../components/UploadBox.jsx";
 import ErrorNotice from "../components/ErrorNotice.jsx";
 import NetworkResults from "../components/NetworkResults.jsx";
 import TextResult from "../components/TextResult.jsx";
+import VideoResult from "../components/VideoResult.jsx";
 
 const MODES = {
   network: {
@@ -19,12 +20,18 @@ const MODES = {
     hint: "A PDF, Word (.docx) or plain text file.",
     run: api.classifyText,
   },
+  video: {
+    label: "Video",
+    accept: ".mp4,.mov,.mkv,.avi,.webm",
+    hint: "Upload a video file for visual scene classification.",
+    run: api.classifyVideo,
+  },
 };
 
 export default function ClassifyPage({ onSaved }) {
   const [mode, setMode] = useState("network");
   // Each flow keeps its own file, result and error, so switching tabs loses nothing.
-  const [state, setState] = useState({ network: {}, text: {} });
+  const [state, setState] = useState({ network: {}, text: {}, video: {} });
   const [busy, setBusy] = useState(false);
 
   const cur = state[mode];
@@ -79,6 +86,7 @@ export default function ClassifyPage({ onSaved }) {
       <ErrorNotice error={cur.error} onDismiss={() => patch(mode, { error: null })} />
       {cur.result && mode === "network" && <NetworkResults data={cur.result} />}
       {cur.result && mode === "text" && <TextResult data={cur.result} />}
+      {cur.result && mode === "video" && <VideoResult data={cur.result} />}
     </div>
   );
 }

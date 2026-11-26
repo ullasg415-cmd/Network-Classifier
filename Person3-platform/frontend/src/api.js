@@ -63,6 +63,7 @@ export const api = {
   health: () => request("/health"),
   classifyNetwork: (file) => upload("/classify/network", file),
   classifyText: (file) => upload("/classify/text", file),
+  classifyVideo: (file) => upload("/classify/video", file),
   registryModels: () => request("/registry/models"),
   compare: (name, versions) => request(`/registry/models/${enc(name)}/compare?versions=${enc(versions.join(","))}`),
   promote: (name, body) => postJson(`/registry/models/${enc(name)}/promote`, body),
